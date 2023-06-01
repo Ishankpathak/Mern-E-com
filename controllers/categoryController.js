@@ -41,7 +41,7 @@ export const updateCategoryController = async (req, res) => {
     const category = await categoryModel.findByIdAndUpdate(id, {
       name,
       slug: slugify(name),
-    });
+    },{new: true});
     res.status(200).send({
       success: true,
       message: "Category updated successfully",
